@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import swaggerUi from 'swagger-ui-express';
+import swaggerOutput from './swagger-output.json' assert { type: 'json' };
+
 //routes import
 import userRouter from "./routes/user.routes.js";
 import productRouter from "./routes/product.routes.js";
@@ -14,14 +17,16 @@ import dashboard from "./routes/stats.routes.js";
 export const myCache = new NodeCache();
 
 const app = express();
-const apiVersion = "/api/v1";
+const apiVersion = "/api/v1"; 
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
     credentials: true,
   })
 );
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 app.use(bodyParser.json({ limit: "16kb" }));
+
 app.use(bodyParser.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
