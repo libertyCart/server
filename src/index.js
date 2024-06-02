@@ -5,6 +5,7 @@ import { app } from "./app.js";
 dotenv.config({
   path: "./.env",
 });
+console.log("mm");
 const asciiDog = `
   / \\__
  (    @\\____
@@ -12,12 +13,12 @@ const asciiDog = `
 /   (_____/
 /_____/  UU
 `;
-ConnectDB()
-  .then(() => {
-    const port = process.env.PORT || 8000;
-    app.listen(port, () => {
-      console.log(asciiDog);
-      console.log(`----------PORT:${port}--NODE-JS-SERVER-ACTIVE----------`);
-    });
-  })
-  .catch((error) => console.log("Error DB : ", error));
+// ConnectDB()
+//   .then(() => {
+//     const port = process.env.PORT || 8000;
+//     // app.listen(port, () => {
+//     //   console.log(asciiDog);
+//     //   console.log(`----------PORT:${port}--NODE-JS-SERVER-ACTIVE----------`);
+//     // });
+//   })
+//   .catch((error) => console.log("Error DB : ", error));

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "This is E-commerce application server",
   "type": "module",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generateDoc": "node ./src/swagger.js"
   },
